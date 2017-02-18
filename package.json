@@ -7,6 +7,7 @@
     "test": "jest --verbose",
     "start": "./node_modules/.bin/webpack-dev-server",
     "clean": "rm -rf ./dist",
+    "compile": "./node_modules/.bin/tsc",
     "watch": "./node_modules/.bin/tsc -w",
     "build:dll": "./node_modules/.bin/webpack --config webpack.dll.config.js --progress --color",
     "build": "./node_modules/.bin/webpack --config webpack.production.js --progress --color",
