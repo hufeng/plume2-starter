@@ -7,8 +7,8 @@
         "experimentalDecorators": true,
         "jsx": "react",
         "baseUrl": ".",
-        "rootDir": "src",
-        "outDir": "./build",
+        "rootDir": "apps",
+        "outDir": "build",
         "paths": {
             "*": [
                 "*",
