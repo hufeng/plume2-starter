@@ -1,2 +1,1 @@
-# plume2-starter
-plume2项目骨架
+## plume2 项目基础project 
