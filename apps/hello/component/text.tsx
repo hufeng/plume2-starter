@@ -26,11 +26,11 @@ export default class Text extends React.Component<IProps, any> {
 
     return (
       <div className="title">
-        <div>hello plume2-start</div>
+        <div>hello plume2-starter</div>
         <div className={styles.title}>
           {text}
           <a href={'javascript:;'} onClick={increment}>
-            点赞(+{count})
+            Like(+{count})
         </a>
         </div>
       </div>
