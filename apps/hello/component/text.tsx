@@ -1,6 +1,9 @@
 import * as React from 'react'
-import { Relax,storeMethod,storePath } from 'plume2'
-const noop = () => {}
+import { Relax, storeMethod, storePath } from 'plume2'
+
+const styles: any = require("./text.css");
+
+const noop = () => { }
 
 type Handler = () => void;
 
@@ -13,20 +16,23 @@ interface IProps {
 @Relax
 export default class Text extends React.Component<IProps, any> {
   static defaultProps = {
-    count: storePath('count',0),
+    count: storePath('count', 0),
     text: '',
-    increment: storeMethod('increment',()=>{}),
+    increment: storeMethod('increment', () => { }),
   };
 
   render() {
     const {count, text, increment} = this.props
 
     return (
-      <div>
-        {text} 
-        <a href={'javascript:;'} onClick={increment}>
-          点赞(+{count})
+      <div className="title">
+        <div>hello plume2-start</div>
+        <div className={styles.title}>
+          {text}
+          <a href={'javascript:;'} onClick={increment}>
+            点赞(+{count})
         </a>
+        </div>
       </div>
     )
   }

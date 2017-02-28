@@ -15,7 +15,7 @@ module.exports = {
         alias: {
             'react': 'preact-compat',
             'react-dom': 'preact-compat',
-            'react-addons-css-transition-group': 'rc-css-transition-group'
+            //'react-addons-css-transition-group': 'rc-css-transition-group'
         }
     },
     module: {
@@ -27,7 +27,25 @@ module.exports = {
                     'ts-loader',
                 ],
                 exclude: [/\.(spec|e2e|d)\.ts$/]
-            }
+            },
+            {
+                test: /\.css$/,
+                loaders: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            sourceMap: true,
+                            importLoaders: 1,
+                            modules: true,
+                            camelCase: true,
+                            localIdentName: '[name]_[local]_[hash:base64:5]',
+                            minimize: false
+                        }
+                    },
+                    "postcss-loader" // has separate config, see postcss.config.js nearby
+                ]
+            },
         ]
     },
     plugins: [

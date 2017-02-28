@@ -15,7 +15,8 @@ module.exports = {
     extensions: ['.web.js', '.js', '.json', '.ts', '.tsx', '.css'],
     alias: {
       'react': 'preact-compat',
-      'react-dom': 'preact-compat'
+      'react-dom': 'preact-compat',
+      'react-addons-css-transition-group': 'rc-css-transition-group'
     }
   },
   module: {
@@ -33,7 +34,25 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'ts-loader'
         //loader: 'awesome-typescript-loader'
-      }
+      },
+       {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+              modules: true,
+              camelCase: true,
+              localIdentName: '[name]_[local]_[hash:base64:5]',
+              minimize: false
+            }
+          },
+          "postcss-loader" // has separate config, see postcss.config.js nearby
+        ]
+      },
     ]
   },
   plugins: [

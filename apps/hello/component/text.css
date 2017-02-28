@@ -1,0 +1,49 @@
+/**
+  http://cssnext.io/features/ 参考
+*/
+
+
+ /**
+ 支持引入css 文件
+ */
+@import "colors.css";
+
+
+/**自定义属性 & 变量定义*/
+:root {
+  --color-blue: #32c7ff;
+
+  --danger-theme: {
+    color: white;
+    background-color: red;
+  };
+
+  --fontSize: 1rem;
+}
+
+.title {
+  color: red;
+ 
+  & a {  /* 样式嵌套第一种写法 使用& &必须在第一位 */
+    color: var(--color-blue);/* 引用变量 */
+  }
+
+  &nest .body &{  /* 样式嵌套第二种写法 使用&nest &可以在任意位置 */
+    color: var(--color-blue);
+  }
+
+  @apply --danger-theme;  /* 引用自定义属性*/
+  
+  font-size: calc(var(--fontSize) * 2);
+
+}
+
+/**
+css 模块化
+:global 全局
+*/
+:global .title {
+ font-size: 20px;
+ color: var(--color-blue);
+}
+
