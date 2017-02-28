@@ -15,8 +15,7 @@ module.exports = {
     extensions: ['.web.js', '.js', '.json', '.ts', '.tsx', '.css'],
     alias: {
       'react': 'preact-compat',
-      'react-dom': 'preact-compat',
-      'react-addons-css-transition-group': 'rc-css-transition-group'
+      'react-dom': 'preact-compat'
     }
   },
   module: {
