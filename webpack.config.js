@@ -1,41 +1,50 @@
+
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: './build/index.js',
+  entry: './apps/index.tsx',
   output: {
-    path: './build',
+    path: './apps',
     filename: 'bundle.js'
   },
   resolve: {
     modules: ['node_modules', path.resolve(__dirname, 'web_modules')],
-    extensions: ['.web.js', '.js', '.json'],
+    extensions: ['.web.js', '.js', '.json', '.ts', '.tsx', '.css'],
     alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat'
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat',
+      'react-addons-css-transition-group': 'rc-css-transition-group'
     }
   },
   module: {
     loaders: [
       {
-        test: /\.js/, 
+        test: /\.tsx?$/,
         include: [
-          path.resolve(__dirname, 'build'),
-          path.resolve(__dirname, 'node_modules/plume2/dist')
+          path.resolve(__dirname, 'apps'),
+          path.resolve(__dirname, 'node_modules/plume2/dist'),
+          path.resolve(__dirname, 'node_modules/preact-compat')
         ],
-        loader: 'babel-loader?cacheDirectory'
+        options: {
+          presets: ['es2015'],
+        },
+        exclude: /node_modules/,
+        loader: 'ts-loader'
+        //loader: 'awesome-typescript-loader'
       }
     ]
   },
   plugins: [
-     new webpack.DefinePlugin({
+    new webpack.DefinePlugin({
       __DEV__: true
     }),
+
     new HtmlWebpackPlugin({
       dev: true,
-      favicon:'./favicon.ico',
+      favicon: './favicon.ico',
       filename: 'index.html',
       template: './index.ejs'
     })

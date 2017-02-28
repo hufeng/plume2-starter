@@ -32,6 +32,9 @@ module.exports = {
           path.resolve(__dirname, 'node_modules/plume2'),
           path.resolve(__dirname, 'node_modules/preact-compat')
         ],
+        options: {
+          presets: ['es2015'],
+        },
         loader: 'babel-loader?cacheDirectory=true'
       }
     ]

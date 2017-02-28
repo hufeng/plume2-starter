@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Relax } from 'plume2'
+import { Relax,storeMethod,storePath } from 'plume2'
 const noop = () => {}
 
 type Handler = () => void;
@@ -13,9 +13,9 @@ interface IProps {
 @Relax
 export default class Text extends React.Component<IProps, any> {
   static defaultProps = {
-    count: 0,
+    count: storePath('count',0),
     text: '',
-    increment: noop,
+    increment: storeMethod('increment',()=>{}),
   };
 
   render() {
