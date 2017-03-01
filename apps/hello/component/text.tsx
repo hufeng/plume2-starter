@@ -1,28 +1,29 @@
 import * as React from 'react'
-import { Relax, storeMethod, storePath } from 'plume2'
+import { Relax } from 'plume2'
 
 const styles: any = require("./text.css");
-
 const noop = () => { }
 
 type Handler = () => void;
 
 interface IProps {
-  count?: number; //不需要外界传递，直接通过Relax注入
-  text?: string;  //不需要外界传递，直接通过Relax注入
-  increment?: Handler; //不需要外界传递，直接通过Relax注入
+  relaxProps?: {
+    count?: number; //不需要外界传递，直接通过Relax注入
+    text?: string;  //不需要外界传递，直接通过Relax注入
+    increment?: Handler; //不需要外界传递，直接通过Relax注入
+  }
 }
 
 @Relax
 export default class Text extends React.Component<IProps, any> {
-  static defaultProps = {
-    count: storePath('count', 0),
-    text: '',
-    increment: storeMethod('increment', () => { }),
+  static relaxProps = {
+    text: 'text',
+    count: 'count',
+    increment: noop,
   };
 
   render() {
-    const {count, text, increment} = this.props
+    const {count, text, increment} = this.props.relaxProps
 
     return (
       <div className="title">
@@ -31,7 +32,7 @@ export default class Text extends React.Component<IProps, any> {
           {text}
           <a href={'javascript:;'} onClick={increment}>
             Like(+{count})
-        </a>
+          </a>
         </div>
       </div>
     )
