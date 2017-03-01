@@ -9,7 +9,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].dll.js',
     /**
      * output.library
@@ -27,14 +27,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.js$/, 
+        test: /.js$/,
         include: [
           path.resolve(__dirname, 'node_modules/plume2'),
           path.resolve(__dirname, 'node_modules/preact-compat')
         ],
-        options: {
-          presets: ['es2015'],
-        },
         loader: 'babel-loader?cacheDirectory=true'
       }
     ]

@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './apps/index.tsx',
     output: {
-        path: './dist',
+        path: path.resolve(__dirname, 'dist'),
         filename: 'bundle-[chunkhash].js'
     },
     resolve: {
@@ -15,15 +15,20 @@ module.exports = {
         alias: {
             'react': 'preact-compat',
             'react-dom': 'preact-compat',
-            //'react-addons-css-transition-group': 'rc-css-transition-group'
+            'react-addons-css-transition-group': 'rc-css-transition-group'
         }
     },
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
+                include: [
+                    path.resolve(__dirname, 'apps'),
+                    path.resolve(__dirname, 'node_modules/plume2/dist'),
+                    path.resolve(__dirname, 'node_modules/preact-compat')
+                ],
                 loaders: [
-                    'babel-loader?presets[]=es2015&cacheDirectory',
+                    'babel-loader?cacheDirectory=true',
                     'ts-loader',
                 ],
                 exclude: [/\.(spec|e2e|d)\.ts$/]

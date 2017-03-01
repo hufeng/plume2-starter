@@ -9,6 +9,7 @@
         "baseUrl": ".",
         "rootDir": "apps",
         "outDir": "build",
+        "importHelpers": true,
         "paths": {
             "*": [
                 "*",

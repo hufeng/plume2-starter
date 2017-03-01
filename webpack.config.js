@@ -23,19 +23,10 @@ module.exports = {
     loaders: [
       {
         test: /\.tsx?$/,
-        include: [
-          path.resolve(__dirname, 'apps'),
-          path.resolve(__dirname, 'node_modules/plume2/dist'),
-          path.resolve(__dirname, 'node_modules/preact-compat')
-        ],
-        options: {
-          presets: ['es2015'],
-        },
         exclude: /node_modules/,
         loader: 'ts-loader'
-        //loader: 'awesome-typescript-loader'
       },
-       {
+      {
         test: /\.css$/,
         use: [
           "style-loader",
