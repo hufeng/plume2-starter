@@ -1,3 +1,17 @@
 {
-  "vsicons.presets.angular": false
+  "vsicons.presets.angular": false,
+  "editor.fontSize": 14,
+  "window.zoomLevel": 0,
+  "editor.tabSize": 2,
+  "editor.rulers": [
+    80
+  ],
+  "editor.tabCompletion": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "vsicons.projectDetection.autoReload": true,
+  "zenMode.hideStatusBar": false,
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }
