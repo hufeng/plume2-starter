@@ -10,6 +10,8 @@
         "rootDir": "apps",
         "outDir": "build",
         "importHelpers": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
         "paths": {
             "*": [
                 "*",
