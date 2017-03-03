@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './apps/index.tsx',
+    entry: './apps/demo/index.tsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle-[chunkhash].js'
@@ -51,6 +51,17 @@ module.exports = {
                     "postcss-loader" // has separate config, see postcss.config.js nearby
                 ]
             },
+            {
+                test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000
+                        }
+                    }
+                ]
+            }
         ]
     },
     plugins: [

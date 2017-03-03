@@ -11,6 +11,7 @@ interface IProps {
     count?: number; //不需要外界传递，直接通过Relax注入
     text?: string;  //不需要外界传递，直接通过Relax注入
     increment?: Handler; //不需要外界传递，直接通过Relax注入
+
   }
 }
 
@@ -19,11 +20,12 @@ export default class Text extends React.Component<IProps, any> {
   static relaxProps = {
     text: 'text',
     count: 'count',
+
     increment: noop,
   };
 
   render() {
-    const {count, text, increment} = this.props.relaxProps
+    const { count, text, increment } = this.props.relaxProps
 
     return (
       <div className="title">

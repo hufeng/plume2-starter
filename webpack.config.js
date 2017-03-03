@@ -5,7 +5,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: './apps/index.tsx',
+  entry: './apps/demo/index.tsx',
+  // entry: './apps/index.tsx',
   output: {
     path: './apps',
     filename: 'bundle.js'
@@ -44,13 +45,23 @@ module.exports = {
           "postcss-loader" // has separate config, see postcss.config.js nearby
         ]
       },
+      {
+        test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000
+            }
+          }
+        ]
+      }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
       __DEV__: true
     }),
-
     new HtmlWebpackPlugin({
       dev: true,
       favicon: './favicon.ico',
@@ -59,6 +70,7 @@ module.exports = {
     })
   ],
   devServer: {
+    inline: true,
     host: '0.0.0.0',
     port: 3000
   }
