@@ -11,7 +11,6 @@ const noop = () => { }
 type Handler = () => void;
 
 @StoreProvider(AppStore, { debug: __DEV__ })
-//@Relax
 export default class HomeMain extends React.Component<any, any>
 {
 
@@ -23,15 +22,9 @@ export default class HomeMain extends React.Component<any, any>
   }
 
   componentDidMount() {
-
+    this.store.init();
   }
 
-  handleChange = () => {
-    console.log("handleClick")
-  }
-  handleClick = () => {
-    console.log("handleClick")
-  }
 
   render() {
     return (

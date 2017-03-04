@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Card, CardTitle, CardMedia, CardActions, CardText, Button, Input, ProgressBar } from 'react-toolbox'
-import { StoreProvider,Relax} from 'plume2'
+import { StoreProvider, Relax } from 'plume2'
 import { browserHistory } from 'react-router'
 import { Link } from 'react-router'
 
@@ -81,7 +81,7 @@ export default class Login extends React.Component<any, any>
         <CardActions >
           <Button label="登录" icon='add' raised primary onClick={setloading} />
           <Button href='/#/home/main' raised>
-            Home
+            跳过登录
           </Button>
         </CardActions>
       </Card>

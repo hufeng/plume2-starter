@@ -1,23 +1,11 @@
 
+import { Response } from '../plume-utils'
 
-   export default function init () {
-    console.log("webapi init");
+export default async function getTopics() {
 
-    getTopics2().then(d => console.log("data=>", d))
-  }
+  const res = await fetch('https://cnodejs.org/api/v1/topics')
+  const json: Response = await res.json();
+  return json;
 
-
-   async function getTopics() {
-    const res = await fetch('https://cnodejs.org/api/v1/topics')
-    const json = await res.json();
-    return json;
-  }
-
-   async function getTopics2() {
-    return fetch('https://cnodejs.org/api/v1/topics')
-      .then(r => r.json())
-      .then(data => {
-        return data;
-      });
-  }
+}
 
