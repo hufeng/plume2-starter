@@ -1,36 +1,24 @@
 /**
  * App 路由定义文件
- * 增加hash # 
+ * 增加使用 react-router
  */
 
-//使用preact-router 导入文件
-// import { Router } from 'preact-router';
-// import { AsyncRoute } from 'preact-async-route';
-// import createHashHistory from 'history/createHashHistory'
+// import * as React from 'react'
+// import {
+//   Router,
+//   Route,
+//   IndexRoute,
+//   Link,
+//   hashHistory
+// } from 'react-router'
 
-//使用react-router 的导入
-
-//import { Promise } from 'es6-promise';
 
 import App from './app'
 import Login from './login'
 import HomeMain from './home-main'
 
-interface ISystemExt extends Object {
-  import?: (path: string) => any;
-}
 
-if (typeof System === 'undefined') {
-  var System: ISystemExt = {};
-  if (typeof System.import !== 'function') {
-    System.import = (d) => {
-      let module = require(d);
-      return Promise.resolve(module);
-    }
-  }
-}
-
-
+declare const System: any;
 //react-router使用异步加载
 const AppRouter = {
   path: '/',
@@ -74,7 +62,6 @@ export default AppRouter
 /**
 //使用react-router 静态配置
 const AppRouter = () => (
-  <div>
     <Router history={hashHistory}>
       <Route path="/">
         <IndexRoute component={Login} />
@@ -86,49 +73,7 @@ const AppRouter = () => (
         </Route>
       </Route>
     </Router>
-  </div>
 )
 export default AppRouter;
  */
 
-
-/*
-//preact-router 不支持子路由 
-const history = createHashHistory({
-  hashType: 'hashbang' // the default
-})
-// Listen for changes to the current location.
-const unlisten = history.listen((location, action) => {
-  // location is an object like window.location
-  if (__DEV__) {
-    console.log("history log=>", action, location.pathname, location.state)
-  }
-})
-
-//第一种写法
-const AppRouter = () => (
-  <div>
-  <Router history={history}>
-    <Login path="/" />
-    <Home path="/home" />
-    <Login default />
-  </Router>
-  </div>
-)
-
-export default AppRouter;
-*/
-
-//第二种写法
-/*
-export default class AppRouter extends React.Component<any, any>
-{
-  render() {
-    return (
-      <Router>
-        <Login path="/" />
-      </Router>
-    );
-  }
-}
-*/

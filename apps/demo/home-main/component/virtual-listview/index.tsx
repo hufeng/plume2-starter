@@ -1,9 +1,12 @@
+
 import * as React from 'react'
 import { Relax } from 'plume2'
 import { List, ListItem, ListSubHeader } from 'react-toolbox'
+import VirtualList from './preact-virtual-list'
 
 
 import { noop } from '../../../plume-utils'
+const styles: any = require("./style.css");
 
 interface ListType {
   author?: {
@@ -32,34 +35,39 @@ interface IProps {
 }
 
 @Relax
-export default class ListView extends React.Component<IProps, any>
+export default class VirtualListView extends React.Component<IProps, any>
 {
   static relaxProps = {
     list: 'list'
   };
 
+  _renderRow(row) {
+    console.log("data", row);
+    return (
+      <ListItem
+        avatar={row.author.avatar_url}
+        caption={row.author.loginname}
+        legend={row.title}
+        rightIcon='star'
+      />
+
+    );
+
+  };
 
   render() {
     let { list } = this.props.relaxProps;
     return (
-      <div>
-        <List selectable ripple>
-
-          {list.map(item =>
-            <ListItem
-              avatar={item.author.avatar_url}
-              caption={item.author.loginname}
-              legend={item.title}
-              rightIcon='star'
-            />
-          )}
-        </List>
-      </div>
+      <List>
+        <VirtualList
+          sync
+          className={styles.list}
+          data={list}
+          rowHeight={70}
+          renderRow={this._renderRow}
+        />
+      </List>
     );
   }
 
-  _renderListItem() {
-
-
-  }
 }
