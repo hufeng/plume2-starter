@@ -3,8 +3,6 @@ import { Relax } from 'plume2'
 import { List, ListItem, ListSubHeader } from 'react-toolbox'
 
 import RcListView from 'rc-list-view'
-const styles: any = require("./index.css")
-
 
 import { noop } from '../../../plume-utils'
 
