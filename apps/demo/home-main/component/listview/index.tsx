@@ -58,8 +58,4 @@ export default class ListView extends React.Component<IProps, any>
     );
   }
 
-  _renderListItem() {
-
-
-  }
 }

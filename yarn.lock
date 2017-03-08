@@ -2160,7 +2160,7 @@ ieee754@^1.1.4:
 
 immutable@^3.8.1:
   version "3.8.1"
-  resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
+  resolved "http://registry.npm.taobao.org/immutable/download/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
 
 indexes-of@^1.0.1:
   version "1.0.1"
@@ -2734,7 +2734,7 @@ minimist@^1.1.0, minimist@^1.2.0:
 
 mitt@^1.1.0:
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/mitt/-/mitt-1.1.0.tgz#22f0d57e2fedd39620a62bb41b7cdd93667d3c41"
+  resolved "http://registry.npm.taobao.org/mitt/download/mitt-1.1.0.tgz#22f0d57e2fedd39620a62bb41b7cdd93667d3c41"
 
 "mkdirp@>=0.5 0", mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   version "0.5.1"
@@ -3081,7 +3081,7 @@ pleeease-filters@^3.0.0:
     onecolor "~2.4.0"
     postcss "^5.0.4"
 
-plume2@0.0.6:
+plume2@^0.0.6:
   version "0.0.6"
   resolved "http://registry.npm.taobao.org/plume2/download/plume2-0.0.6.tgz#2ef1d0a97364e8860e63bd0a369d5f356c7ecc27"
   dependencies:

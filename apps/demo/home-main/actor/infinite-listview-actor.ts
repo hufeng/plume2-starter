@@ -6,7 +6,7 @@ import { noop, Handler } from '../../plume-utils'
 export default class InfiniteActor extends Actor {
   defaultState() {
     return {
-      hasmore: true,
+      hasmore: false,
       infiniteList: [],
       getMoreData: noop
     }
@@ -24,8 +24,7 @@ export default class InfiniteActor extends Actor {
     data.map(item => {
       _data.push(item);
     })
-    //_data.concat(data);
-    console.log("getMoreData", _data);
+    //console.log("getMoreData", _data);
     return state.set('infiniteList', _data)
       .set('hasmore', false);
   }

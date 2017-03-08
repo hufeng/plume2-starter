@@ -85,6 +85,7 @@ export default class InfiniteListView extends React.Component<IProps, any>
     let { clientHeight, scrollHeight, scrollTop } = e.target;
     let { infiniteList, hasmore, setHasmore, getMoreData } = this.props.relaxProps;
     if (scrollHeight - clientHeight === scrollTop) {
+      console.log("hasmore", hasmore);
       if (!hasmore) {
         setHasmore();
       } else {
@@ -143,6 +144,7 @@ export default class InfiniteListView extends React.Component<IProps, any>
 
   render() {
     let { infiniteList, hasmore } = this.props.relaxProps;
+    console.log("render------>")
     //console.log(infiniteList, infiniteList.length)
     //let { hasmore,page, infiniteList } = this.state;  //state example
     return (
