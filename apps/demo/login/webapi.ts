@@ -1,4 +1,6 @@
 
+import 'whatwg-fetch'
+
 async function getTopics() {
   const res = await fetch('https://cnodejs.org/api/v1/topics')
   const json = await res.json();
@@ -6,6 +8,7 @@ async function getTopics() {
 }
 
 async function getTopics2() {
+  console.log('getTopics2 start');
   return fetch('https://cnodejs.org/api/v1/topics')
     .then(r => r.json())
     .then(data => {
