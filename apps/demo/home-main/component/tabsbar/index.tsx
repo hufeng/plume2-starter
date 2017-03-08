@@ -5,6 +5,7 @@ import { AppBar, Link, Navigation, CardMedia, Tabs, Tab } from 'react-toolbox'
 import ListView from '../listview'
 import VirtualListView from '../virtual-listview'
 import PullRefreshList from '../pull-refresh-list'
+import InfiniteListView from '../infinite-listview'
 
 export default class TabsBar extends React.Component<any, any>
 {
@@ -36,6 +37,10 @@ export default class TabsBar extends React.Component<any, any>
                 <Tab label='原创' onActive={this.handleActive}>
                     <div>rc-list-view</div>
                     <PullRefreshList />
+                </Tab>
+                <Tab label='无限滚动' onActive={this.handleActive}>
+                    <div>react-infinite-scroller</div>
+                    <InfiniteListView />
                 </Tab>
             </Tabs>
         );

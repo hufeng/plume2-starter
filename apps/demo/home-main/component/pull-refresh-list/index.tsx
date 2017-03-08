@@ -4,7 +4,7 @@ import { List, ListItem, ListSubHeader } from 'react-toolbox'
 
 import RcListView from 'rc-list-view'
 
-import { noop } from '../../../plume-utils'
+import { noop, Handler } from '../../../plume-utils'
 
 interface ListType {
   author?: {
@@ -69,12 +69,14 @@ export default class PullRefreshList extends React.Component<IProps, any>
   _renderRow(row) {
     //console.log("data", row);
     return (
-      <ListItem
-        avatar={row.author.avatar_url}
-        caption={row.author.loginname}
-        legend={row.title}
-        rightIcon='star'
-      />
+      <List>
+        <ListItem
+          avatar={row.author.avatar_url}
+          caption={row.author.loginname}
+          legend={row.title}
+          rightIcon='star'
+        />
+      </List>
 
     );
 
@@ -97,8 +99,5 @@ export default class PullRefreshList extends React.Component<IProps, any>
     );
   }
 
-  _renderListItem() {
 
-
-  }
 }

@@ -2,6 +2,7 @@ import { Store, IOptions } from 'plume2'
 
 import commActor from './actor/comm-actor'
 import getTopics from './webapi'
+import InfiniteActor from "./actor/infinite-listview-actor";
 
 
 export default class AppStore extends Store {
@@ -15,6 +16,7 @@ export default class AppStore extends Store {
   bindActor() {
     return [
       new commActor,
+      new InfiniteActor,
 
     ]
   }
@@ -30,10 +32,31 @@ export default class AppStore extends Store {
       if (data.success) {
         this.dispatch('home-main:setListData', data.data)
       }
-     
-
     });
+  }
 
+  setHasmore = () => {
+    console.log("store setHasmore")
+    this.dispatch('home-main:setHasmore')
+  };
+
+
+
+  initInfiniteList = () => {
+    getTopics().then(data => {
+      if (data.success) {
+        this.dispatch('home-main:initInfiniteList', data.data)
+      }
+    });
+  }
+
+  getMoreData = () => {
+    getTopics().then(data => {
+      console.log("home-main getMoreData", data);
+      if (data.success) {
+        this.dispatch('home-main:getMoreData', data.data)
+      }
+    });
 
   }
 }
