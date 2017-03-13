@@ -19,7 +19,7 @@ match({ history: hashHistory, routes: AppRouter }, (err, redirectLocation, rende
         <Router {...renderProps} children={AppRouter} />
     )
 
-    ReactDOM.render(<Router {...renderProps} children={AppRouter} />, document.getElementById('app'));
+    ReactDOM.render(router, document.getElementById('app'));
 
 });
 //ReactDOM.render(<AppRouter/>, document.getElementById('app'))

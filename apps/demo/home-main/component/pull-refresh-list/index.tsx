@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { Relax } from 'plume2'
-import { List, ListItem, ListSubHeader } from 'react-toolbox'
-
+import { List, ListItem } from 'react-toolbox'
+import { hashHistory } from 'react-router'
 import RcListView from 'rc-list-view'
 
-import { noop, Handler } from '../../../plume-utils'
 
 interface ListType {
   author?: {
@@ -65,6 +64,11 @@ export default class PullRefreshList extends React.Component<IProps, any>
 
   }
 
+  onhandleclick = (id) => {
+    console.log("onclick", id);
+    hashHistory.push(`detail/${id}`)
+  }
+
 
   _renderRow(row) {
     //console.log("data", row);
@@ -75,6 +79,7 @@ export default class PullRefreshList extends React.Component<IProps, any>
           caption={row.author.loginname}
           legend={row.title}
           rightIcon='star'
+          onClick={this.onhandleclick.bind(null, row.id)}
         />
       </List>
 

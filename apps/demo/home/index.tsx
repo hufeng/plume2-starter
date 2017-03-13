@@ -1,8 +1,4 @@
 import * as React from 'react'
-import { StoreProvider, Relax } from 'plume2'
-
-
-import AppStore from './store'
 import Header from './component/header'
 import BottomBar from './component/bottombar'
 

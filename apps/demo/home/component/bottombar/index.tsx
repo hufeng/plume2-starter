@@ -1,13 +1,7 @@
 import * as React from 'react'
-import { StoreProvider, Relax } from 'plume2'
 import * as  classNames from 'classnames';
-import { AppBar, Navigation, CardMedia, Tabs, Tab, FontIcon } from 'react-toolbox'
-//import { Router } from 'preact-router';
+import { FontIcon } from 'react-toolbox'
 import { Link } from 'react-router';
-
-
-import Login from '../../../login'
-import Home from '../../../home'
 
 const styles: any = require("./bottombar.css");
 
@@ -38,15 +32,15 @@ export default class BottomBar extends React.Component<any, any>
           </li>
           <li className={classNames(styles.li, { [styles.liActive]: 2 == index ? true : false })} onClick={this.handleActive.bind(null, 2)}>
             <FontIcon className={styles.icon} value='person' />
-           <span className={styles.span}>test</span>
+            <span className={styles.span}>test</span>
           </li>
           <li className={classNames(styles.li, { [styles.liActive]: 3 == index ? true : false })} onClick={this.handleActive.bind(null, 3)}>
             <FontIcon className={styles.icon} value='person' />
-             <span className={styles.span}>test</span>
+            <span className={styles.span}>test</span>
           </li>
         </div>
 
-        
+
       </div>
 
     );

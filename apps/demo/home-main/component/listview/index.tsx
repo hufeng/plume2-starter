@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { Relax } from 'plume2'
-import { List, ListItem, ListSubHeader } from 'react-toolbox'
-
-
-import { noop } from '../../../plume-utils'
+import { List, ListItem } from 'react-toolbox'
+import { hashHistory } from 'react-router'
 
 interface ListType {
   author?: {
@@ -38,6 +36,10 @@ export default class ListView extends React.Component<IProps, any>
     list: 'list'
   };
 
+  onhandleclick = (id) => {
+    console.log("onclick", id);
+    hashHistory.push(`detail/${id}`)
+  }
 
   render() {
     let { list } = this.props.relaxProps;
@@ -46,12 +48,15 @@ export default class ListView extends React.Component<IProps, any>
         <List selectable ripple>
 
           {list.map(item =>
+
             <ListItem
               avatar={item.author.avatar_url}
               caption={item.author.loginname}
               legend={item.title}
               rightIcon='star'
+              onClick={this.onhandleclick.bind(null, item.id)}
             />
+
           )}
         </List>
       </div>

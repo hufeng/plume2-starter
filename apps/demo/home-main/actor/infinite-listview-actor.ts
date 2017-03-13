@@ -1,7 +1,7 @@
 import { Action, Actor, IMap } from 'plume2'
+import { fromJS } from 'immutable'
 
-
-import { noop, Handler } from '../../plume-utils'
+import { noop } from '../../plume-utils'
 
 export default class InfiniteActor extends Actor {
   defaultState() {
@@ -20,17 +20,18 @@ export default class InfiniteActor extends Actor {
 
   @Action('home-main:getMoreData')
   getMoreData(state: IMap, data: Array<any>) {
-    let _data = state.get('infiniteList');
+    let _data = state.get('infiniteList').toJS();
     data.map(item => {
       _data.push(item);
     })
     //console.log("getMoreData", _data);
-    return state.set('infiniteList', _data)
+    return state
+      .set('infiniteList', fromJS(_data))
       .set('hasmore', false);
   }
 
   @Action('home-main:initInfiniteList')
   initInfiniteList(state: IMap, data: Array<any>) {
-    return state.set('infiniteList', data);
+    return state.set('infiniteList', fromJS(data));
   }
 }

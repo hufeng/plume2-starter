@@ -1,14 +1,9 @@
 import * as React from 'react'
-import { Card, CardTitle, CardMedia, CardActions, CardText, Button, Input, ProgressBar } from 'react-toolbox'
-import { StoreProvider, Relax } from 'plume2'
-import { browserHistory } from 'react-router'
-import { Link } from 'react-router'
+import { Card, CardTitle, CardMedia, CardActions, Button, Input, ProgressBar } from 'react-toolbox'
+import { StoreProvider } from 'plume2'
 
 import AppStore from './store'
 
-const noop = () => { }
-
-type Handler = () => void;
 
 // interface TProps {
 //   loading?: boolean; //injected by store's second
@@ -38,7 +33,7 @@ export default class Login extends React.Component<any, any>
 
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.store.init();
   }
 

@@ -1,11 +1,8 @@
-import {Store, IOptions} from 'plume2'
-
+import { Store, IOptions } from 'plume2'
 import commActor from './actor/comm-actor'
 import WebApi from './webapi'
 
-
 export default class AppStore extends Store {
-  //[propName: string]: any;
   constructor(props: IOptions) {
     super(props)
     if (__DEV__) {
@@ -15,7 +12,7 @@ export default class AppStore extends Store {
   bindActor() {
     return [
       new commActor,
-     
+
     ]
   }
 
@@ -24,8 +21,8 @@ export default class AppStore extends Store {
     this.dispatch('login:setLoading')
   };
 
-  init=()=>{
-   let data= new WebApi().init();
-   //console.log("init",data);
+  init = () => {
+    new WebApi().init();
+
   }
 }

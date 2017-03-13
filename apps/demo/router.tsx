@@ -16,6 +16,7 @@
 import App from './app'
 import Login from './login'
 import HomeMain from './home-main'
+//import Detail from './detail'
 
 
 declare const System: any;
@@ -28,9 +29,10 @@ const AppRouter = {
     {
       path: 'home',
       indexRoute: { component: HomeMain },
-      getComponent(nextState, cb) {
+      getComponent({ }, cb) {
         System.import('./home').then(module => {
           cb(null, module.default);
+
         });
       },
       childRoutes: [
@@ -40,13 +42,21 @@ const AppRouter = {
         },
         {
           path: 'profile',
-          getComponent(nextState, cb) {
+          getComponent({ }, cb) {
             System.import('./profile').then(module => {
               cb(null, module.default);
             });
           }
         }
       ]
+    },
+    {
+      path: 'detail/:id',
+      getComponent({ }, cb) {
+        System.import('./detail').then(module => {
+          cb(null, module.default);
+        });
+      }
     }
     , {
       path: 'login',

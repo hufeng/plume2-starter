@@ -1,11 +1,9 @@
 
 import * as React from 'react'
 import { Relax } from 'plume2'
-import { List, ListItem, ListSubHeader } from 'react-toolbox'
+import { List, ListItem, Link } from 'react-toolbox'
 import VirtualList from './preact-virtual-list'
 
-
-import { noop } from '../../../plume-utils'
 const styles: any = require("./style.css");
 
 interface ListType {
@@ -44,12 +42,15 @@ export default class VirtualListView extends React.Component<IProps, any>
   _renderRow(row) {
     console.log("data", row);
     return (
-      <ListItem
-        avatar={row.author.avatar_url}
-        caption={row.author.loginname}
-        legend={row.title}
-        rightIcon='star'
-      />
+      <Link active href={`#/detail/${row.id}`}>
+        <ListItem
+          avatar={row.author.avatar_url}
+          caption={row.author.loginname}
+          legend={row.title}
+          rightIcon='star'
+
+        />
+      </Link>
 
     );
 

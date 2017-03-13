@@ -1,11 +1,9 @@
 import 'whatwg-fetch'
 import { Response } from '../plume-utils'
 
-export default async function getTopics() {
-
-  const res = await fetch('http://cnodejs.org/api/v1/topics')
+export async function getTopicsDetail(id: string) {
+  const res = await fetch('https://cnodejs.org/api/v1/topic/' + id)
   const json: Response = await res.json();
   return json;
-
 }
 

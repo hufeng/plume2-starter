@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Relax } from 'plume2'
-import { List, ListItem, ListSubHeader, ProgressBar } from 'react-toolbox'
+import { Relax, IMap } from 'plume2'
+import { List, ListItem, ProgressBar } from 'react-toolbox'
 
 import RcListView from 'rc-list-view'
 
@@ -28,7 +28,7 @@ interface ListType {
 
 interface IProps {
   relaxProps?: {
-    infiniteList: Array<ListType>,
+    infiniteList: IMap,
     hasmore: boolean,
     setHasmore: Handler,
     getMoreData: Handler,
@@ -83,7 +83,7 @@ export default class InfiniteListView extends React.Component<IProps, any>
 
   _handleScroll = (e) => {
     let { clientHeight, scrollHeight, scrollTop } = e.target;
-    let { infiniteList, hasmore, setHasmore, getMoreData } = this.props.relaxProps;
+    let { hasmore, setHasmore, getMoreData } = this.props.relaxProps;
     if (scrollHeight - clientHeight === scrollTop) {
       console.log("hasmore", hasmore);
       if (!hasmore) {
@@ -91,7 +91,6 @@ export default class InfiniteListView extends React.Component<IProps, any>
       } else {
         getMoreData();
       }
-
 
     }
 
@@ -126,11 +125,12 @@ export default class InfiniteListView extends React.Component<IProps, any>
 
   _renderRow(row) {
     //console.log(row)
+    let item = row as ListType;
     return (
       <ListItem
-        avatar={row.author.avatar_url}
-        caption={row.author.loginname}
-        legend={row.title}
+        avatar={item.author.avatar_url}
+        caption={item.author.loginname}
+        legend={item.title}
         rightIcon='star'
       />
     );
@@ -144,7 +144,8 @@ export default class InfiniteListView extends React.Component<IProps, any>
 
   render() {
     let { infiniteList, hasmore } = this.props.relaxProps;
-    console.log("render------>")
+    let list = infiniteList.toJS();
+    console.log("render------>", infiniteList, hasmore)
     //console.log(infiniteList, infiniteList.length)
     //let { hasmore,page, infiniteList } = this.state;  //state example
     return (
@@ -155,12 +156,12 @@ export default class InfiniteListView extends React.Component<IProps, any>
             overflow: 'auto',
             //background: '#000'
           }}>
-          <RcListView rowCount={infiniteList.length}
+          <RcListView rowCount={list.length}
             rowHeight={70}
             height={this.state.clientHeight}
             renderItem={(index, style) =>
               <div style={style}>
-                {this._renderRow(infiniteList[index])}
+                {this._renderRow(list[index])}
               </div>
             } />
 

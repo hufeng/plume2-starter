@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { StoreProvider, Relax } from 'plume2'
-import { AppBar, Link, Navigation, CardMedia, Tabs, Tab } from 'react-toolbox'
+import { Tabs, Tab } from 'react-toolbox'
 
 import ListView from '../listview'
 import VirtualListView from '../virtual-listview'
@@ -10,7 +9,7 @@ import InfiniteListView from '../infinite-listview'
 export default class TabsBar extends React.Component<any, any>
 {
     state = {
-        index: 1
+        index: 0
     };
 
     handleTabChange = (index) => {

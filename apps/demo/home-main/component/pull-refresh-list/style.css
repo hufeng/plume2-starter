@@ -1,0 +1,13 @@
+
+.list {
+	//position: absolute;
+	top: 0;
+	left: 0;
+	height: 260px;
+	width: 100%;
+	border: 1px solid #CCC;
+	background: #FFF;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
