@@ -5,9 +5,9 @@
 
 2.npm install
 
-3.npm run start      查看demo
+3.npm run start      查看demo app  带路由 UI webapi 复杂功能演示
 
-4.npm run hello      查看hello 
+4.npm run hello      查看hello app 简单preact 和plume2 功能演示
 
 5.npm run build:all  发布到dist
 ```
@@ -27,7 +27,7 @@ plume2-starter demo  项目依赖
 
 4.ui react-toolbox      UI
 
-5.posscss               css
+5.postcss               css
 
 6.classnames            A simple javascript utility for conditionally joining classNames                                                    together. 
 
