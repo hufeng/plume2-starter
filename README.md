@@ -17,7 +17,7 @@ demo GIF
 ![Aaron Swartz](https://raw.githubusercontent.com/hufeng/plume2-starter/master/docs/hello.app.gif)
 ![Aaron Swartz](https://raw.githubusercontent.com/hufeng/plume2-starter/master/docs/demo.app.gif)
 
-
+```
 项目目录
 ├── favicon.ico
 ├── index.ejs
@@ -43,3 +43,4 @@ demo GIF
 ├── webpack.dll.config.js
 ├── webpack.production.js
 └── yarn.lock
+```
