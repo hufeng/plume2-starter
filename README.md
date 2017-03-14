@@ -18,6 +18,23 @@ demo GIF
 ![Aaron Swartz](https://raw.githubusercontent.com/hufeng/plume2-starter/master/docs/demo.app.gif)
 
 ```
+plume2-starter demo  项目依赖
+
+1.plume2                Simple, props state management
+
+2.preact preact-compat  Preact is a fast, 3kB alternative to React, with the same ES2015 API.
+
+3.react-router          Router
+
+4.ui react-toolbox      UI
+
+5.posscss               css
+
+6.classnames            A simple javascript utility for conditionally joining classNames                                                    together. 
+
+```
+
+```
 项目目录
 ├── favicon.ico
 ├── index.ejs
@@ -25,14 +42,14 @@ demo GIF
 ├──├── hello
 │  │   ├── actor
 │  │   │   ├── counter-actor.ts
-│  │   └── hello-actor.ts
-│  ├── component
-│      │   ├── colors.css
-│      │   ├── text.css
-│      │   └── text.tsx
-│      ├── index.tsx
-│      ├── store.ts
-│      └── webapi.ts
+│  │   │   └── hello-actor.ts
+│  │   ├── component
+│  │   │   ├── colors.css
+│  │   │   ├── text.css
+│  │   │   └── text.tsx
+│  │   ├── index.tsx
+│  │   ├── store.ts
+│  └── └── webapi.ts
 └── dist
 ├── node_modules
 ├── package.json
