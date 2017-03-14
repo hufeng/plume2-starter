@@ -1,6 +1,6 @@
 ## plume2 starter
 
-
+```
 1.git clone https://github.com/hufeng/plume2-starter.git
 
 2.npm install
@@ -9,9 +9,8 @@
 
 4.npm run hello      查看hello 
 
-5.npm run build:all  发布
-
-
+5.npm run build:all  发布到dist
+```
 demo GIF
 
 ![Aaron Swartz](https://raw.githubusercontent.com/hufeng/plume2-starter/master/docs/hello.app.gif)
