@@ -3,10 +3,15 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+let entry = process.env.NODE_ENV === 'demo'
+  ? [
+    './apps/demo/index.tsx'
+  ]
+  : './apps/index.tsx';
+
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: './apps/demo/index.tsx',
-  // entry: './apps/index.tsx',
+  entry: entry,
   output: {
     path: './apps',
     filename: 'bundle.js'

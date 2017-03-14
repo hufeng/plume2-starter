@@ -19,13 +19,11 @@ interface ListType {
   title?: string,
   top?: boolean,
   visit_count?: number,
-
 }
 
 interface IProps {
   relaxProps?: {
     list: Array<ListType>
-
   }
 }
 
@@ -46,9 +44,7 @@ export default class ListView extends React.Component<IProps, any>
     return (
       <div>
         <List selectable ripple>
-
           {list.map(item =>
-
             <ListItem
               avatar={item.author.avatar_url}
               caption={item.author.loginname}
@@ -56,11 +52,9 @@ export default class ListView extends React.Component<IProps, any>
               rightIcon='star'
               onClick={this.onhandleclick.bind(null, item.id)}
             />
-
           )}
         </List>
       </div>
     );
   }
-
 }

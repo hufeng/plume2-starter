@@ -10,10 +10,7 @@ import TabsBar from './component/tabsbar'
 @StoreProvider(AppStore, { debug: __DEV__ })
 export default class HomeMain extends React.Component<any, any>
 {
-
   store: AppStore;
-
-
   constructor() {
     super();
   }
@@ -21,7 +18,6 @@ export default class HomeMain extends React.Component<any, any>
   componentDidMount() {
     this.store.init();
   }
-
 
   render() {
     return (

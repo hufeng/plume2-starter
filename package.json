@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",
-    "start": "./node_modules/.bin/webpack-dev-server",
+    "start": "npm run demo",
+    "hello": "cross-env NODE_ENV=hello ./node_modules/.bin/webpack-dev-server",
+    "demo": "cross-env NODE_ENV=demo ./node_modules/.bin/webpack-dev-server",
     "clean": "rm -rf ./dist",
     "build:dll": "./node_modules/.bin/webpack --config webpack.dll.config.js --progress --color",
     "build": "./node_modules/.bin/webpack --config webpack.production.js --progress --color",
-    "build:all": "npm run clean && npm run build:dll && npm run build"
+    "build:all": "npm run clean && npm run build:dll && npm run build",
+    "dist": "python -m SimpleHTTPServer 3000"
   },
   "keywords": [
     "plume2",
@@ -48,6 +51,7 @@
     "babel-preset-es2015": "6.18.0",
     "babel-preset-stage-3": "6.17.0",
     "classnames": "^2.2.5",
+    "cross-env": "^3.2.3",
     "css-loader": "^0.26.2",
     "file-loader": "^0.10.1",
     "fs": "^0.0.1-security",
