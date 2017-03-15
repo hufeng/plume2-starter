@@ -1,4 +1,6 @@
-
+/**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ */
 import * as React from 'react'
 import { Relax } from 'plume2'
 import { List, ListItem, Link } from 'react-toolbox'

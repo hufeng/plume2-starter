@@ -1,6 +1,13 @@
+/**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ */
 import * as React from 'react'
 import { Relax } from 'plume2'
 import { Card, CardTitle, CardText, } from 'react-toolbox'
+
+/**
+ * detail 详情页面的详情组件
+ */
 
 type DetailType = {
   id: string,

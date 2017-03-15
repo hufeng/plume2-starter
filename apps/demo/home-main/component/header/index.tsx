@@ -1,3 +1,6 @@
+/**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ */
 import * as React from 'react'
 
 const styles: any = require("./style.css");

@@ -1,11 +1,17 @@
+/**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ */
 import { Action, Actor, IMap } from 'plume2'
 import { fromJS } from "immutable";
 
-export default class CounterActor extends Actor {
+/**
+ * 详情页面actor
+ */
+export default class CommActor extends Actor {
   defaultState() {
     return {
-      loading: false,
-      detail: {},
+      loading: false, //loading 是否显示
+      detail: {},     //详情数据
     }
   }
 

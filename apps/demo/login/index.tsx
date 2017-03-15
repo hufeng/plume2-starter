@@ -1,51 +1,54 @@
+/**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ */
+
+
 import * as React from 'react'
 import { Card, CardTitle, CardMedia, CardActions, Button, Input, ProgressBar } from 'react-toolbox'
 import { StoreProvider } from 'plume2'
 
 import AppStore from './store'
 
+/**
+ * 页面的顶层组件设计
+ */
 
-// interface TProps {
-//   loading?: boolean; //injected by store's second
-//   setloading:Handler;
-
-//   // handleChange?: Handler; //injected by store's start 
-//   // handleClick?: Handler; //injected by store's reset
-// }
-
-
+/**
+ * 在顶层组件中@StoreProvider是桥接store和view的关系
+ */
 @StoreProvider(AppStore, { debug: __DEV__ })
-//@Relax
 export default class Login extends React.Component<any, any>
 {
 
+  /**
+   * 顶层组件中引用store的声明
+   */
   store: AppStore;
-
-  // static defaultProps = {
-  //   loading: storePath('loading',false),
-  //   //handleChange:noop,
-  //   setloading:storeMethod('setloading')
-  // };
 
   constructor() {
     super();
-
-
   }
 
+  /**
+   * 顶层组件中使用store 上面的方法
+   */
   componentWillMount() {
     this.store.init();
   }
 
-  handleChange = () => {
-    console.log("handleClick")
-  }
-  handleClick = () => {
-    console.log("handleClick")
+  /**
+   * handle input 框的change事件
+   * @param {string} inputname input的名称
+   * @param {string} val input change后的value值
+   * @returns null
+   */
+  handleChange = (inputname: string, val: string) => {
+    console.log("handleChange", inputname, val)
   }
 
+
   render() {
-    console.log("this.props", this.props);
+
     let loading = this.store.state().get("loading");
     let setloading = this.store.setLoading;
     return (

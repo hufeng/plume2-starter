@@ -1,3 +1,6 @@
+/**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ */
 import * as React from 'react'
 import { Tabs, Tab } from 'react-toolbox'
 
@@ -5,6 +8,10 @@ import ListView from '../listview'
 import VirtualListView from '../virtual-listview'
 import PullRefreshList from '../pull-refresh-list'
 import InfiniteListView from '../infinite-listview'
+
+/**
+ * HomeMain 的tabbar组件
+ */
 
 export default class TabsBar extends React.Component<any, any>
 {

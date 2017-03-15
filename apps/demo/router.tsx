@@ -1,8 +1,11 @@
 /**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ *
  * App 路由定义文件
  * 增加使用 react-router
  */
 
+// 静态路由引入文件
 // import * as React from 'react'
 // import {
 //   Router,
@@ -20,6 +23,10 @@ import HomeMain from './home-main'
 
 
 declare const System: any;
+
+/**
+ * react-router 路由的函数式写法
+ */
 //react-router使用异步加载
 const AppRouter = {
   path: '/',

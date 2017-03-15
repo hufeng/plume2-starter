@@ -1,10 +1,19 @@
+/**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ */
 import * as React from 'react'
 import { Relax } from 'plume2'
 import { List, ListItem } from 'react-toolbox'
 import { hashHistory } from 'react-router'
 import RcListView from 'rc-list-view'
 
+/**
+ * homeMain 中的使用rc-list-view 组件list演示
+ */
 
+/**
+ * topic 数据接口定义
+ */
 interface ListType {
   author?: {
     avatar_url: string,
@@ -24,19 +33,30 @@ interface ListType {
 
 }
 
+/**
+ * 组件的props类型定义
+ * 
+ */
 interface IProps {
   relaxProps?: {
     list: Array<ListType>
-
   }
 }
 
+
+/**
+ * @Relax plume2 的核心组件
+ * 把store和actor中的数据绑定到view
+ */
 @Relax
 export default class PullRefreshList extends React.Component<IProps, any>
 {
 
   base: any;
 
+  /**
+   * plume2 中在组件中引用actor数据的定义
+   */
   static relaxProps = {
     list: 'list'
   };
@@ -50,7 +70,7 @@ export default class PullRefreshList extends React.Component<IProps, any>
   }
 
   componentDidMount() {
-    console.log("this", this, this.base)
+    //console.log("this", this, this.base)
     this.setState({
       clientHeight: this.base.clientHeight,
       clientWidth: this.base.clientWidth,
@@ -64,6 +84,9 @@ export default class PullRefreshList extends React.Component<IProps, any>
 
   }
 
+  /**
+   * @params id list的id
+   */
   onhandleclick = (id) => {
     console.log("onclick", id);
     hashHistory.push(`detail/${id}`)

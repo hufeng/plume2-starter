@@ -1,25 +1,22 @@
+/**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ */
+
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { match, Router, hashHistory } from 'react-router'
+import { Router, hashHistory } from 'react-router'
 import AppRouter from './router'
 
 if (__DEV__) {
     require('preact/devtools')
 }
 
+/**
+ * 使用异步子路由的加载方式
+ */
+ReactDOM.render(<Router history={hashHistory} routes={AppRouter} />, document.getElementById('app'));
 
-match({ history: hashHistory, routes: AppRouter }, (err, redirectLocation, renderProps: any) => {
-
-    if (err) {
-        console.log("err:" + err);
-        console.log("redirectLocation:" + redirectLocation);
-        console.log("renderProps:" + JSON.stringify(renderProps));
-    }
-    let router = (
-        <Router {...renderProps} children={AppRouter} />
-    )
-
-    ReactDOM.render(router, document.getElementById('app'));
-
-});
+/**
+ * 使用静态路由的加载方式
+ */
 //ReactDOM.render(<AppRouter/>, document.getElementById('app'))

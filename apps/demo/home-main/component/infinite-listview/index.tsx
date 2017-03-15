@@ -1,3 +1,6 @@
+/**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ */
 import * as React from 'react'
 import { Relax, IMap } from 'plume2'
 import { List, ListItem, ProgressBar } from 'react-toolbox'
@@ -36,12 +39,19 @@ interface IProps {
   }
 }
 
-
+/**
+ * @Relax plume2 的核心组件
+ * 把store和actor中的数据绑定到view
+ */
 @Relax
 export default class InfiniteListView extends React.Component<IProps, any>
 {
   base: any;
-
+  /**
+   * plume2 中在组件中引用actor数据的定义
+   * 引用store中的方法的定义
+   * relaxProps 负责绑定actor的数据 store的方法到view
+   */
   static relaxProps = {
     hasmore: 'hasmore',
     infiniteList: 'infiniteList',
@@ -55,11 +65,6 @@ export default class InfiniteListView extends React.Component<IProps, any>
       clientHeight: 0,
       clientWidth: 0,
       scrollTop: 0,
-      /** state example
-      hasmore: false,
-      infiniteList: [],
-      page: 10,
-      */
     };
   }
 
@@ -68,22 +73,18 @@ export default class InfiniteListView extends React.Component<IProps, any>
       clientHeight: this.base.clientHeight,
       scrollTop: this.base.scrollTop,
     });
-    this.props.relaxProps.initInfiniteList();
-    /** state example
-    console.log("this", this, this.base, this.state)
-    let { page, infiniteList } = this.state;
-    for (let x = page; x--;) infiniteList[x] = `Item #${x + 1}`;
 
-    this.setState({
-      page: page,
-      infiniteList: infiniteList
-    });
-     */
+    //初始化list数据
+    this.props.relaxProps.initInfiniteList();
   }
 
+  /**
+   * handle滚动信息
+   */
   _handleScroll = (e) => {
     let { clientHeight, scrollHeight, scrollTop } = e.target;
     let { hasmore, setHasmore, getMoreData } = this.props.relaxProps;
+    //判断是否滚动到list底部
     if (scrollHeight - clientHeight === scrollTop) {
       console.log("hasmore", hasmore);
       if (!hasmore) {
@@ -93,38 +94,10 @@ export default class InfiniteListView extends React.Component<IProps, any>
       }
 
     }
-
-
-
-    /** state example
-    let { clientHeight, scrollHeight, scrollTop } = e.target;
-    let { page, infiniteList } = this.state;
-    page = page + 10;
-    if (scrollHeight - clientHeight == scrollTop) {
-      this.setState({
-        hasmore: true,
-      });
-      setTimeout(() => {
-
-        for (let x = page; x--;) {
-          infiniteList[x] = `Item #${x + 1
-            }`
-        };
-
-        this.setState({
-          hasmore: false,
-          page: page,
-          infiniteList: infiniteList
-        });
-
-      }, 2000);
-    }
-     */
   }
 
 
   _renderRow(row) {
-    //console.log(row)
     let item = row as ListType;
     return (
       <ListItem
@@ -134,27 +107,18 @@ export default class InfiniteListView extends React.Component<IProps, any>
         rightIcon='star'
       />
     );
-    /**state example
-    console.log("data", row);
-    return row;
-     */
-
-
   };
 
   render() {
     let { infiniteList, hasmore } = this.props.relaxProps;
+    //infiniteList是immutable数据 需要toJS()
     let list = infiniteList.toJS();
-    console.log("render------>", infiniteList, hasmore)
-    //console.log(infiniteList, infiniteList.length)
-    //let { hasmore,page, infiniteList } = this.state;  //state example
     return (
       <List>
         <div onScroll={this._handleScroll}
           style={{
-            height: '210',
+            height: '300',
             overflow: 'auto',
-            //background: '#000'
           }}>
           <RcListView rowCount={list.length}
             rowHeight={70}
@@ -164,7 +128,6 @@ export default class InfiniteListView extends React.Component<IProps, any>
                 {this._renderRow(list[index])}
               </div>
             } />
-
           {hasmore ?
             <div className={styles.center}>
               <ProgressBar

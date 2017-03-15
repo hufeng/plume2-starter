@@ -1,8 +1,14 @@
+/**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ */
 import * as React from 'react'
 import { Relax } from 'plume2'
 import { List, ListItem } from 'react-toolbox'
 import { hashHistory } from 'react-router'
 
+/**
+ *react-toolbox 的listview组件演示 
+ */
 interface ListType {
   author?: {
     avatar_url: string,

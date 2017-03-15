@@ -1,31 +1,34 @@
+/**
+ * Created by Acans angrycans@gmail.com on 2017/3/15
+ */
 import { Store, IOptions } from 'plume2'
 
 import commActor from './actor/comm-actor'
 import getTopics from './webapi'
 import InfiniteActor from "./actor/infinite-listview-actor";
 
+/**
+ * homeMain 的store
+ */
 
 export default class AppStore extends Store {
-  //[propName: string]: any;
   constructor(props: IOptions) {
     super(props)
     if (__DEV__) {
       window['_store'] = this
     }
   }
+
   bindActor() {
     return [
       new commActor,
       new InfiniteActor,
-
     ]
   }
 
-  setLoading = () => {
-    console.log("store setLoading")
-    this.dispatch('login:setLoading')
-  };
-
+  /**
+   * 进入homeMain后初始化需要的topic数据
+   */
   init = () => {
     getTopics().then(data => {
       console.log("home-main getTopics", data);
@@ -36,8 +39,12 @@ export default class AppStore extends Store {
   }
 
   setHasmore = () => {
-    console.log("store setHasmore")
-    this.dispatch('home-main:setHasmore')
+    console.log("store setHasmore");
+    //延时演示下hasmore loading
+    setTimeout(() => {
+      this.dispatch('home-main:setHasmore');
+    }, 1000);
+
   };
 
 
@@ -57,6 +64,5 @@ export default class AppStore extends Store {
         this.dispatch('home-main:getMoreData', data.data)
       }
     });
-
   }
 }
