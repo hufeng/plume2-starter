@@ -96,7 +96,6 @@ export default class InfiniteListView extends React.Component<IProps, any>
     }
   }
 
-
   _renderRow(row) {
     let item = row as ListType;
     return (
@@ -114,12 +113,15 @@ export default class InfiniteListView extends React.Component<IProps, any>
     //infiniteList是immutable数据 需要toJS()
     let list = infiniteList.toJS();
     return (
-      <List>
-        <div onScroll={this._handleScroll}
-          style={{
-            height: '300',
-            overflow: 'auto',
-          }}>
+
+      <div onScroll={this._handleScroll}
+        style={{
+          height: '300',
+          overflow: 'auto',
+        }}>
+
+        {/* 在微信端渲染可视item时 有bug
+        <List>
           <RcListView rowCount={list.length}
             rowHeight={70}
             height={this.state.clientHeight}
@@ -128,17 +130,23 @@ export default class InfiniteListView extends React.Component<IProps, any>
                 {this._renderRow(list[index])}
               </div>
             } />
-          {hasmore ?
-            <div className={styles.center}>
-              <ProgressBar
-                className={styles.small}
-                type='circular'
-                mode='indeterminate'
-                multicolor />
-            </div>
-            : null}
-        </div>
-      </List>
+        </List>*/}
+
+        <List selectable ripple>
+          {list.map(item =>
+            this._renderRow(item)
+          )}
+        </List>
+        {hasmore ?
+          <div className={styles.center}>
+            <ProgressBar
+              className={styles.small}
+              type='circular'
+              mode='indeterminate'
+              multicolor />
+          </div>
+          : null}
+      </div>
     );
   }
 

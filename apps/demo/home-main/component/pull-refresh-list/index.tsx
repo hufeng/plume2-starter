@@ -9,6 +9,8 @@ import RcListView from 'rc-list-view'
 
 /**
  * homeMain 中的使用rc-list-view 组件list演示
+ * rc-list-view 组件在微信上面快速滚动时 由于-webkit-overflow-scrolling: touch 的bug会有白屏现象。
+ * 在微信上建议使用普通的listview 不使用只渲染可视条目的组件
  */
 
 /**
