@@ -1,4 +1,4 @@
-```
+
 1.统一通用编码配置
 ====
   1.AirBnb es6 [编码规范]:(http://www.kancloud.cn/kancloud/javascript-style-guide/43119)
@@ -39,6 +39,3 @@
 
 
 
-
-
-  ```
