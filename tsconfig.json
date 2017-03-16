@@ -7,7 +7,6 @@
         "experimentalDecorators": true,
         "jsx": "react",
         "baseUrl": ".",
-        "rootDir": "apps",
         "outDir": "build",
         "importHelpers": true,
         "noUnusedLocals": true,

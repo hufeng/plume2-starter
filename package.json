@@ -8,11 +8,25 @@
     "start": "npm run demo",
     "hello": "cross-env NODE_ENV=hello ./node_modules/.bin/webpack-dev-server",
     "demo": "cross-env NODE_ENV=demo ./node_modules/.bin/webpack-dev-server",
-    "clean": "rm -rf ./dist",
+    "clean": "rm -rf ./dist/*",
     "build:dll": "./node_modules/.bin/webpack --config webpack.dll.config.js --progress --color",
     "build": "./node_modules/.bin/webpack --config webpack.production.js --progress --color",
     "build:all": "npm run clean && npm run build:dll && npm run build",
     "dist": "python -m SimpleHTTPServer 3000"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/../node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
   },
   "keywords": [
     "plume2",
@@ -39,7 +53,9 @@
   },
   "devDependencies": {
     "@types/classnames": "^0.0.32",
+    "@types/jest": "^19.2.2",
     "@types/react-router": "^3.0.6",
+    "@types/react-test-renderer": "^15.4.2",
     "@types/whatwg-fetch": "^0.0.33",
     "awesome-typescript-loader": "^3.0.8",
     "babel-jest": "18.0.0",
@@ -56,6 +72,7 @@
     "file-loader": "^0.10.1",
     "fs": "^0.0.1-security",
     "html-webpack-plugin": "2.24.1",
+    "jest": "^19.0.2",
     "postcss-cssnext": "^2.9.0",
     "postcss-each": "^0.9.3",
     "postcss-import": "^9.1.0",
@@ -65,7 +82,9 @@
     "preact-router": "^2.4.1",
     "rc-css-transition-group": "^2.1.4",
     "react-style-proptype": "^2.0.1",
+    "react-test-renderer": "^15.4.2",
     "style-loader": "^0.13.2",
+    "ts-jest": "^19.0.1",
     "ts-loader": "^2.0.1",
     "typescript": "2.2.0",
     "url-loader": "^0.5.8",
