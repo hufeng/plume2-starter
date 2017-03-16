@@ -10,6 +10,7 @@ import { Response } from '../plume-utils'
  * @param id 
  */
 export async function getTopicsDetail(id: string) {
+  //console.log("getTopicsDetail", id);
   const res = await fetch('https://cnodejs.org/api/v1/topic/' + id)
   const json: Response = await res.json();
   return json;

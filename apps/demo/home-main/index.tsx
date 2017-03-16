@@ -18,7 +18,7 @@ export default class HomeMain extends React.Component<any, any> {
   store: AppStore;
 
   //init
-  componentDidMount() {
+  componentWillMount() {
     this.store.init()
   }
 

@@ -13,7 +13,7 @@ import Detail from './component/detail'
 export default class Home extends React.Component<any, any> {
   store: AppStore;
 
-  componentDidMount() {
+  componentWillMount() {
     //init
     this.store.setTopicsDetail(this.props.params.id);
   }

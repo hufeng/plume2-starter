@@ -8,9 +8,9 @@ import { getTopicsDetail } from './webapi'
 export default class AppStore extends Store {
   constructor(props: IOptions) {
     super(props)
-    if (__DEV__) {
-      window['_store'] = this
-    }
+    // if (__DEV__) {
+    //   window['_store'] = this
+    // }
   }
 
   bindActor() {
