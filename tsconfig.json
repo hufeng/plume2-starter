@@ -7,15 +7,21 @@
         "experimentalDecorators": true,
         "jsx": "react",
         "baseUrl": ".",
+        "rootDirs": [
+            "./apps",
+            "./web_modules"
+        ],
         "outDir": "build",
         "importHelpers": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "paths": {
-            "*": [
-                "*",
-                "vendor/*"
+            "qmkit": [
+                "./web_modules/qmkit"
             ]
         }
-    }
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }
