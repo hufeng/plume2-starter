@@ -1,11 +1,13 @@
 ```
 1.统一通用编码配置
+====
   1.AirBnb es6 [编码规范]:(http://www.kancloud.cn/kancloud/javascript-style-guide/43119)
   1.tab用2个空格表示
   2.文件名使用小写，文件名的段落分割使用`-` 
   3.class的名称是驼峰风格
 
 2.注释
+====
 使用jsdoc风格注释
 [JSDOC](http://www.css88.com/doc/jsdoc/index.html)
 /**
@@ -16,6 +18,7 @@
  */
 
 3.plume2约定
+====
   1.view目录结构
   ├── views                   # 拆分的模块名称 
   │   ├── actor               # actor 文件夹
