@@ -23,10 +23,10 @@ export default class CommActor extends Actor {
 
   @Action('detail:setTopicsDetail')
   setTopicsDetail(state: IMap, data: any) {
-    //console.log("actor setLoading")
-    return state
-      .set('detail', fromJS(data))
-      .set('loading', false);
+    return state.withMutations(state => {
+      state
+        .set('detail', fromJS(data))
+        .set('loading', false);
+    })
   }
-
 }

@@ -22,7 +22,6 @@ import HomeMain from './home-main'
 //import Detail from './detail'
 
 
-declare const System: any;
 
 /**
  * react-router 路由的函数式写法
@@ -39,7 +38,6 @@ const AppRouter = {
       getComponent({ }, cb) {
         System.import('./home').then(module => {
           cb(null, module.default);
-
         });
       },
       childRoutes: [

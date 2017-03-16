@@ -10,24 +10,25 @@ import Header from './component/header'
 import Detail from './component/detail'
 
 @StoreProvider(AppStore, { debug: __DEV__ })
-export default class Home extends React.Component<any, any>
-{
-
+export default class Home extends React.Component<any, any> {
   store: AppStore;
 
-
-  constructor() {
-    super();
-  }
-
-  componentWillMount() {
+  componentDidMount() {
+    //init
     this.store.setTopicsDetail(this.props.params.id);
   }
 
   render() {
-    console.log("render this.props", this.store.state().get("loading"));
-    if (this.store.state().get("loading")) {
-      return <ProgressBar type='circular' mode='indeterminate' multicolor />
+    const loading = this.store.state().get('loading')
+
+    if (loading) {
+      return (
+        <ProgressBar
+          type='circular'
+          mode='indeterminate'
+          multicolor
+        />
+      )
     }
 
     return (
