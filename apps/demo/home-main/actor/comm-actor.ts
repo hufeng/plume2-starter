@@ -22,8 +22,6 @@ export default class CounterActor extends Actor {
    */
   @Action('home-main:setListData')
   setListData(state: IMap, data: [any]) {
-    console.log("actor setListData", data);
-
     return state.set('list', data);
   }
 

@@ -13,20 +13,12 @@ import InfiniteListView from '../infinite-listview'
  * HomeMain 的tabbar组件
  */
 
-export default class TabsBar extends React.Component<any, any>
-{
-    state = {
-        index: 0
-    };
-
-    handleTabChange = (index) => {
-        this.setState({ index });
-    }
-
-    handleActive = () => {
-        if (__DEV__) {
-            console.log("TabsBar handleActive");
-        }
+export default class TabsBar extends React.Component<any, any> {
+    constructor(props) {
+        super(props)
+        this.state = {
+            index: 0
+        };
     }
 
     render() {
@@ -50,5 +42,16 @@ export default class TabsBar extends React.Component<any, any>
                 </Tab>
             </Tabs>
         );
+    }
+
+
+    handleTabChange = (index) => {
+        this.setState({ index });
+    }
+
+    handleActive = () => {
+        if (__DEV__) {
+            console.log("TabsBar handleActive");
+        }
     }
 }

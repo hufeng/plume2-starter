@@ -17,17 +17,11 @@ import AppStore from './store'
  * 在顶层组件中@StoreProvider是桥接store和view的关系
  */
 @StoreProvider(AppStore, { debug: __DEV__ })
-export default class Login extends React.Component<any, any>
-{
-
+export default class Login extends React.Component<any, any> {
   /**
    * 顶层组件中引用store的声明
    */
   store: AppStore;
-
-  constructor() {
-    super();
-  }
 
   /**
    * 顶层组件中使用store 上面的方法
@@ -36,23 +30,12 @@ export default class Login extends React.Component<any, any>
     this.store.init();
   }
 
-  /**
-   * handle input 框的change事件
-   * @param {string} inputname input的名称
-   * @param {string} val input change后的value值
-   * @returns null
-   */
-  handleChange = (inputname: string, val: string) => {
-    console.log("handleChange", inputname, val)
-  }
-
-
   render() {
 
     let loading = this.store.state().get("loading");
     let setloading = this.store.setLoading;
-    return (
 
+    return (
       <Card style={{ width: '100%', height: '100%' }}>
         {
           loading ?
@@ -74,7 +57,6 @@ export default class Login extends React.Component<any, any>
         <section>
           <Input type='tel' required label='Phone' name='phone' icon='phone' value={this.state.phone} onChange={this.handleChange.bind(this, 'phone')} maxLength={16} />
           <Input type='password' required label='password' name='name' icon='visibility' value={this.state.name} onChange={this.handleChange.bind(this, 'name')} />
-
         </section>
         <CardActions >
           <Button label="登录" icon='add' raised primary onClick={setloading} />
@@ -84,5 +66,15 @@ export default class Login extends React.Component<any, any>
         </CardActions>
       </Card>
     );
+  }
+
+  /**
+ * handle input 框的change事件
+ * @param {string} inputname input的名称
+ * @param {string} val input change后的value值
+ * @returns null
+ */
+  handleChange = (inputname: string, val: string) => {
+    console.log("handleChange", inputname, val)
   }
 }

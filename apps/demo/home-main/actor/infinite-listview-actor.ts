@@ -23,7 +23,6 @@ export default class InfiniteActor extends Actor {
    */
   @Action('home-main:setHasmore')
   setHasmore(state: IMap) {
-    console.log("actor setHasmore")
     return state.set('hasmore', true)
   }
 
@@ -34,7 +33,6 @@ export default class InfiniteActor extends Actor {
    */
   @Action('home-main:getMoreData')
   getMoreData(state: IMap, data: Array<any>) {
-
     let _data = state.get('infiniteList').toJS();
     data.map(item => {
       _data.push(item);

@@ -2,7 +2,7 @@
  * Created by Acans angrycans@gmail.com on 2017/3/15
  */
 import * as React from 'react'
-import { Relax } from 'plume2'
+import { Relax, IMap } from 'plume2'
 import { Card, CardTitle, CardText, } from 'react-toolbox'
 
 /**
@@ -40,19 +40,19 @@ type DetailType = {
 
 interface IProps {
   relaxProps?: {
-    detail: any
+    detail: IMap
   }
 }
 
 @Relax
-export default class Detail extends React.Component<IProps, any>
-{
+export default class Detail extends React.Component<IProps, any> {
   static relaxProps = {
     detail: 'detail'
   };
 
   render() {
-    let detail: DetailType = this.props.relaxProps.detail.toJS() as DetailType;
+    const detail = this.props.relaxProps.detail.toJS() as DetailType;
+
     return (
       <div>
         <Card>
@@ -63,7 +63,6 @@ export default class Detail extends React.Component<IProps, any>
           <CardText>{detail.content}</CardText>
         </Card>
       </div >
-
-    );
+    )
   }
 }

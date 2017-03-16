@@ -34,19 +34,13 @@ interface IProps {
 }
 
 @Relax
-export default class ListView extends React.Component<IProps, any>
-{
+export default class ListView extends React.Component<IProps, any> {
   static relaxProps = {
     list: 'list'
   };
 
-  onhandleclick = (id) => {
-    console.log("onclick", id);
-    hashHistory.push(`detail/${id}`)
-  }
-
   render() {
-    let { list } = this.props.relaxProps;
+    const { list } = this.props.relaxProps;
     return (
       <div>
         <List selectable ripple>
@@ -56,11 +50,17 @@ export default class ListView extends React.Component<IProps, any>
               caption={item.author.loginname}
               legend={item.title}
               rightIcon='star'
-              onClick={this.onhandleclick.bind(null, item.id)}
+              onClick={() => this.onhandleclick(item.id)}
             />
           )}
         </List>
       </div>
     );
+  }
+
+
+  onhandleclick = (id) => {
+    console.log("onclick", id);
+    hashHistory.push(`detail/${id}`)
   }
 }

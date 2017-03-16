@@ -17,12 +17,15 @@ export default class CommActor extends Actor {
 
   @Action('detail:setLoading')
   setloading(state: IMap) {
-    console.log("actor setLoading")
     return state.set('loading', true);
   }
 
   @Action('detail:setTopicsDetail')
   setTopicsDetail(state: IMap, data: any) {
+    //对immutable做多次set的操作
+    //使用下面两中方式提高性能
+    //1. 使用withMutations
+    //2. 使用update
     return state.withMutations(state => {
       state
         .set('detail', fromJS(data))

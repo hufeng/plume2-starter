@@ -14,15 +14,12 @@ import TabsBar from './component/tabsbar'
  * 顶层组件的render尽量直观的描述出组件的结构
  */
 @StoreProvider(AppStore, { debug: __DEV__ })
-export default class HomeMain extends React.Component<any, any>
-{
+export default class HomeMain extends React.Component<any, any> {
   store: AppStore;
-  constructor() {
-    super();
-  }
 
+  //init
   componentDidMount() {
-    this.store.init();
+    this.store.init()
   }
 
   render() {
@@ -31,6 +28,6 @@ export default class HomeMain extends React.Component<any, any>
         <Header />
         <TabsBar />
       </div>
-    );
+    )
   }
 }

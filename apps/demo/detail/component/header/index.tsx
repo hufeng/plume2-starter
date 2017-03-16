@@ -10,8 +10,13 @@ import { browserHistory } from 'react-router'
  * detail页面的header组件
  */
 @Relax
-export default class Header extends React.Component<any, any>
-{
+export default class Header extends React.Component<any, any> {
+  props: {
+    relaxProps?: {
+      title: string;
+    }
+  };
+
   /**
    * 绑定详情页面的标题到header的title数据
    * 这儿支持路径的方式绑定
@@ -20,13 +25,13 @@ export default class Header extends React.Component<any, any>
     title: ['detail', 'title']
   }
 
-  onLeftIconClick = () => {
-    browserHistory.goBack();
-  }
-
   render() {
-    console.log("this.props.relaxProps", this.props.relaxProps);
-    let { title } = this.props.relaxProps;
+    const { title } = this.props.relaxProps
+
+    if (__DEV__) {
+      console.log("this.props.relaxProps", title)
+    }
+
     return (
       <div>
         <AppBar
@@ -36,5 +41,10 @@ export default class Header extends React.Component<any, any>
         />
       </div>
     );
+  }
+
+
+  onLeftIconClick = () => {
+    browserHistory.goBack();
   }
 }

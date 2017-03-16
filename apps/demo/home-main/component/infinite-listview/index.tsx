@@ -44,8 +44,7 @@ interface IProps {
  * 把store和actor中的数据绑定到view
  */
 @Relax
-export default class InfiniteListView extends React.Component<IProps, any>
-{
+export default class InfiniteListView extends React.Component<IProps, any> {
   base: any;
   /**
    * plume2 中在组件中引用actor数据的定义

@@ -11,8 +11,7 @@ import BottomBar from './component/bottombar'
  * 在组件划分的时候 需要思考最近组件设计 在容器内尽量拆分出独立组件
  */
 
-export default class Home extends React.Component<any, any>
-{
+export default class Home extends React.Component<any, any> {
   render() {
     return (
       <div>

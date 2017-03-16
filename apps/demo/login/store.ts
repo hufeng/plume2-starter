@@ -29,8 +29,7 @@ export default class AppStore extends Store {
    */
   bindActor() {
     return [
-      new commActor,
-
+      new commActor
     ]
   }
 

@@ -7,7 +7,7 @@ import * as  classNames from 'classnames';
 import { FontIcon } from 'react-toolbox'
 import { Link } from 'react-router';
 
-const styles: any = require("./bottombar.css");
+const styles: any = require("./bottombar.css")
 
 /**
  * home组件的bottombar 组件设计
@@ -17,46 +17,47 @@ const styles: any = require("./bottombar.css");
  * 组件页面状态变化不涉及业务数据的变化一般直接采用react state来控制页面的render
  */
 
-export default class BottomBar extends React.Component<any, any>
-{
-  state = {
-    index: 0
+export default class BottomBar extends React.Component<any, any> {
+  state: {
+    index: number;
   };
 
-
-  handleActive = (index: number) => {
-
-    this.setState({ index });
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      index: 0
+    }
   }
-
 
   render() {
     let { index } = this.state;
+
     return (
       <div>
         <div className={styles.ul}>
-          <li className={classNames(styles.li, { [styles.liActive]: 0 == index ? true : false })} onClick={this.handleActive.bind(null, 0)}>
+          <li className={classNames(styles.li, { [styles.liActive]: 0 == index })} onClick={() => this.handleActive(0)}>
             <FontIcon className={styles.icon} value='person' />
             <span className={styles.span}><Link to="/home/main">main</Link></span>
           </li>
-          <li className={classNames(styles.li, { [styles.liActive]: 1 == index ? true : false })} onClick={this.handleActive.bind(null, 1)}>
+          <li className={classNames(styles.li, { [styles.liActive]: 1 == index })} onClick={() => this.handleActive(1)}>
             <FontIcon className={styles.icon} value='person' />
             <span className={styles.span}><Link to="/home/profile">profile</Link></span>
           </li>
-          <li className={classNames(styles.li, { [styles.liActive]: 2 == index ? true : false })} onClick={this.handleActive.bind(null, 2)}>
+          <li className={classNames(styles.li, { [styles.liActive]: 2 == index })} onClick={() => this.handleActive(2)}>
             <FontIcon className={styles.icon} value='person' />
             <span className={styles.span}>test</span>
           </li>
-          <li className={classNames(styles.li, { [styles.liActive]: 3 == index ? true : false })} onClick={this.handleActive.bind(null, 3)}>
+          <li className={classNames(styles.li, { [styles.liActive]: 3 == index })} onClick={() => this.handleActive(3)}>
             <FontIcon className={styles.icon} value='person' />
             <span className={styles.span}>test</span>
           </li>
         </div>
-
-
       </div>
 
     );
   }
+
+  handleActive = (index: number) => {
+    this.setState({ index });
+  };
 }

@@ -9,9 +9,7 @@ import { AppBar } from 'react-toolbox'
 /**
  * home 页面的header组件
  */
-
-export default class Header extends React.Component<any, any>
-{
+export default class Header extends React.Component<any, any> {
   render() {
     return (
       <div>
