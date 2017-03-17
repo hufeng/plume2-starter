@@ -3,13 +3,15 @@
 ```
 1.git clone https://github.com/hufeng/plume2-starter.git
 
-2.npm install
+2.cd plume2-starter
 
-3.npm run start      查看demo app  带路由 UI webapi 复杂功能演示
+3.npm install
 
-4.npm run hello      查看hello app 简单preact 和plume2 功能演示
+4.npm run start      查看demo app  带路由 UI webapi 复杂功能演示
 
-5.npm run build:all  发布到dist
+5.npm run hello      查看hello app 简单preact 和plume2 功能演示
+
+6.npm run build:all  发布到dist
 ```
 demo GIF
 
