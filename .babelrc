@@ -4,12 +4,6 @@
     "stage-3"
   ],
   "plugins": [
-    [
-      "transform-react-jsx",
-      {
-        "pragma": "h"
-      }
-    ],
     "transform-class-properties",
     "transform-runtime"
   ]

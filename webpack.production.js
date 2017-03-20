@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './apps/demo/index.tsx',
+    entry: './apps/index.tsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle-[chunkhash].js'
