@@ -4,7 +4,6 @@
 
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { Router, hashHistory } from 'react-router'
 import AppRouter from './router'
 
 if (__DEV__) {
@@ -14,7 +13,7 @@ if (__DEV__) {
 /**
  * 使用异步子路由的加载方式
  */
-ReactDOM.render(<Router history={hashHistory} routes={AppRouter} />, document.getElementById('app'));
+ReactDOM.render(<AppRouter />, document.getElementById('app'));
 
 /**
  * 使用静态路由的加载方式

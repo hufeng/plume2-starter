@@ -5,11 +5,12 @@
         "noImplicitAny": false,
         "sourceMap": false,
         "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
         "jsx": "react",
         "baseUrl": ".",
         "rootDirs": [
-            "./apps",
-            "./web_modules"
+            "apps",
+            "web_modules"
         ],
         "outDir": "build",
         "importHelpers": true,
@@ -17,7 +18,7 @@
         "noUnusedParameters": true,
         "paths": {
             "qmkit": [
-                "./web_modules/qmkit"
+                "web_modules/qmkit"
             ]
         }
     },

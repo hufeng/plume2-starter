@@ -2,7 +2,7 @@
  * Created by Acans angrycans@gmail.com on 2017/3/15
  */
 import 'whatwg-fetch'
-import { Response } from '../plume-utils'
+import { Response } from 'qmkit'
 
 
 /**

@@ -2,93 +2,54 @@
  * Created by Acans angrycans@gmail.com on 2017/3/15
  *
  * App 路由定义文件
- * 增加使用 react-router
+ * 增加使用 react-router v4
  */
-
-// 静态路由引入文件
-// import * as React from 'react'
-// import {
-//   Router,
-//   Route,
-//   IndexRoute,
-//   Link,
-//   hashHistory
-// } from 'react-router'
+import * as React from 'react'
+import {
+  HashRouter as Router,
+} from 'react-router-dom'
 
 
-import App from './app'
+import { RouteWithSubRoutes, IRoute } from 'qmkit'
 import Login from './login'
+import Home from './home'
 import HomeMain from './home-main'
-//import Detail from './detail'
+//import Profile from './profile'
 
-
-
-/**
- * react-router 路由的函数式写法
- */
-//react-router使用异步加载
-const AppRouter = {
-  path: '/',
-  component: App,
-  indexRoute: { component: Login },
-  childRoutes: [
-    {
-      path: 'home',
-      indexRoute: { component: HomeMain },
-      getComponent({ }, cb) {
-        System.import('./home').then(module => {
-          cb(null, module.default);
-        });
+const routes: Array<IRoute> = [
+  {
+    path: '/',
+    exact: true,
+    component: Login
+  },
+  {
+    path: '/home',
+    component: Home,
+    routes: [
+      {
+        path: '/home/main',
+        exact: true,
+        component: HomeMain
       },
-      childRoutes: [
-        {
-          path: 'main',
-          component: HomeMain
-        },
-        {
-          path: 'profile',
-          getComponent({ }, cb) {
-            System.import('./profile').then(module => {
-              cb(null, module.default);
-            });
-          }
-        }
-      ]
-    },
-    {
-      path: 'detail/:id',
-      getComponent({ }, cb) {
-        System.import('./detail').then(module => {
-          cb(null, module.default);
-        });
-      }
-    }
-    , {
-      path: 'login',
-      component: Login,
-    }
-  ]
-
-};
+      {
+        path: '/home/profile',
+        exact: true,
+        asyncComponent: () => System.import('./profile')
+      },
+    ]
+  }
+]
 
 
-export default AppRouter
-
-/**
-//使用react-router 静态配置
 const AppRouter = () => (
-    <Router history={hashHistory}>
-      <Route path="/">
-        <IndexRoute component={Login} />
-        <Route path="/login" component={Login} />
-        <Route path="/home" component={Home}>
-           <IndexRoute component={HomeMain} />
-          <Route path="main" component={HomeMain} />
-          <Route path="profile" component={Profile} />
-        </Route>
-      </Route>
-    </Router>
+  <Router>
+    <div>
+      {RouteWithSubRoutes(routes)}
+    </div>
+  </Router>
 )
+
+
 export default AppRouter;
- */
+
 

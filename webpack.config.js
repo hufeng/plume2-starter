@@ -17,7 +17,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    modules: ['node_modules', path.resolve(__dirname, '/web_modules')],
+    modules: ['node_modules', path.resolve(__dirname, 'web_modules')],
     extensions: ['.web.js', '.js', '.json', '.ts', '.tsx', '.css'],
     alias: {
       'react': 'preact-compat',

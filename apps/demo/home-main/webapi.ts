@@ -1,5 +1,5 @@
 import 'whatwg-fetch'
-import { Response } from '../plume-utils'
+import { Response } from 'qmkit'
 
 export default async function getTopics() {
 

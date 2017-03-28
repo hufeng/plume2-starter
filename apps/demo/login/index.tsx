@@ -2,8 +2,8 @@
  * Created by Acans angrycans@gmail.com on 2017/3/15
  */
 
-
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { Card, CardTitle, CardMedia, CardActions, Button, Input, ProgressBar } from 'react-toolbox'
 import { StoreProvider } from 'plume2'
 
@@ -60,9 +60,8 @@ export default class Login extends React.Component<any, any> {
         </section>
         <CardActions >
           <Button label="登录" icon='add' raised primary onClick={setloading} />
-          <Button href='/#/home/main' raised>
-            跳过登录
-          </Button>
+
+          <Link to="/home/main">跳过登录</Link>
         </CardActions>
       </Card>
     );

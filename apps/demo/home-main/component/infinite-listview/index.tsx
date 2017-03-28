@@ -7,7 +7,7 @@ import { List, ListItem, ProgressBar } from 'react-toolbox'
 
 //import RcListView from 'rc-list-view'
 
-import { noop, Handler } from '../../../plume-utils'
+import { noop, Handler } from 'qmkit'
 const styles: any = require("./style.css");
 
 interface ListType {
