@@ -12,6 +12,8 @@
 5.npm run hello      查看hello app 简单preact 和plume2 功能演示
 
 6.npm run build:all  发布到dist
+
+7.http://127.0.0.1:3000 
 ```
 demo GIF
 
