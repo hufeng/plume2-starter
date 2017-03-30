@@ -21,7 +21,7 @@ demo GIF
 ![Aaron Swartz](https://raw.githubusercontent.com/hufeng/plume2-starter/master/docs/demo.app.gif)
 
 ```
-plume2-starter demo  项目依赖
+plume2-starter demo  项目依赖RE
 
 1.plume2                Simple, props state management
 

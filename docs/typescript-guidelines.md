@@ -6,6 +6,8 @@
   2.tab用2个空格表示
   3.文件名使用小写，文件名的段落分割使用`-` 
   4.class的名称是驼峰风格
+  5.type 声明 T   如: TListtype
+  6.interface 声明 I 如 IProps
 ```
 2.注释
 ====
