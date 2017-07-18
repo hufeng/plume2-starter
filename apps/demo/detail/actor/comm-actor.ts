@@ -1,8 +1,8 @@
 /**
  * Created by Acans angrycans@gmail.com on 2017/3/15
  */
-import { Action, Actor, IMap } from 'plume2'
-import { fromJS } from "immutable";
+import { Action, Actor, IMap } from 'plume2';
+import { fromJS } from 'immutable';
 
 /**
  * 详情页面actor
@@ -11,8 +11,8 @@ export default class CommActor extends Actor {
   defaultState() {
     return {
       loading: false, //loading 是否显示
-      detail: {},     //详情数据
-    }
+      detail: {} //详情数据
+    };
   }
 
   @Action('detail:setLoading')
@@ -27,9 +27,7 @@ export default class CommActor extends Actor {
     //1. 使用withMutations
     //2. 使用update
     return state.withMutations(state => {
-      state
-        .set('detail', fromJS(data))
-        .set('loading', false);
-    })
+      state.set('detail', fromJS(data)).set('loading', false);
+    });
   }
 }

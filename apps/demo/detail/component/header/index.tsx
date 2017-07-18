@@ -1,10 +1,10 @@
 /**
  * Created by Acans angrycans@gmail.com on 2017/3/15
  */
-import * as React from 'react'
-import { Relax } from 'plume2'
-import { AppBar } from 'react-toolbox'
-import { browserHistory } from 'react-router'
+import React from 'react';
+import { Relax } from 'plume2';
+import { AppBar } from 'react-toolbox';
+import { browserHistory } from 'react-router';
 
 /**
  * detail页面的header组件
@@ -14,7 +14,7 @@ export default class Header extends React.Component<any, any> {
   props: {
     relaxProps?: {
       title: string;
-    }
+    };
   };
 
   /**
@@ -23,13 +23,13 @@ export default class Header extends React.Component<any, any> {
    */
   static relaxProps = {
     title: ['detail', 'title']
-  }
+  };
 
   render() {
-    const { title } = this.props.relaxProps
+    const { title } = this.props.relaxProps;
 
     if (__DEV__) {
-      console.log("this.props.relaxProps", title)
+      console.log('this.props.relaxProps', title);
     }
 
     return (
@@ -43,8 +43,7 @@ export default class Header extends React.Component<any, any> {
     );
   }
 
-
   onLeftIconClick = () => {
     browserHistory.goBack();
-  }
+  };
 }

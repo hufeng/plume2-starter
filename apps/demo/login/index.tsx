@@ -2,12 +2,20 @@
  * Created by Acans angrycans@gmail.com on 2017/3/15
  */
 
-import * as React from 'react'
-import { Link } from 'react-router-dom'
-import { Card, CardTitle, CardMedia, CardActions, Button, Input, ProgressBar } from 'react-toolbox'
-import { StoreProvider } from 'plume2'
+import * as React from 'react';
+import { Link } from 'react-router-dom';
+import {
+  Card,
+  CardTitle,
+  CardMedia,
+  CardActions,
+  Button,
+  Input,
+  ProgressBar
+} from 'react-toolbox';
+import { StoreProvider } from 'plume2';
 
-import AppStore from './store'
+import AppStore from './store';
 
 /**
  * 页面的顶层组件设计
@@ -31,35 +39,46 @@ export default class Login extends React.Component<any, any> {
   }
 
   render() {
-
-    let loading = this.store.state().get("loading");
+    let loading = this.store.state().get('loading');
     let setloading = this.store.setLoading;
 
     return (
       <Card style={{ width: '100%', height: '100%' }}>
-        {
-          loading ?
-            <section >
-              <ProgressBar mode='indeterminate' />
+        {loading
+          ? <section>
+              <ProgressBar mode="indeterminate" />
             </section>
-            : null
-        }
+          : null}
 
         <CardTitle
           avatar={require('./img/nature.jpeg')}
           title="User Login"
           subtitle=""
         />
-        <CardMedia
-          aspectRatio="wide"
-          image={require('./img/nature.jpeg')}
-        />
+        <CardMedia aspectRatio="wide" image={require('./img/nature.jpeg')} />
         <section>
-          <Input type='tel' required label='Phone' name='phone' icon='phone' value={this.state.phone} onChange={this.handleChange.bind(this, 'phone')} maxLength={16} />
-          <Input type='password' required label='password' name='name' icon='visibility' value={this.state.name} onChange={this.handleChange.bind(this, 'name')} />
+          <Input
+            type="tel"
+            required
+            label="Phone"
+            name="phone"
+            icon="phone"
+            value={this.state.phone}
+            onChange={this.handleChange.bind(this, 'phone')}
+            maxLength={16}
+          />
+          <Input
+            type="password"
+            required
+            label="password"
+            name="name"
+            icon="visibility"
+            value={this.state.name}
+            onChange={this.handleChange.bind(this, 'name')}
+          />
         </section>
-        <CardActions >
-          <Button label="登录" icon='add' raised primary onClick={setloading} />
+        <CardActions>
+          <Button label="登录" icon="add" raised primary onClick={setloading} />
 
           <Link to="/home/main">跳过登录</Link>
         </CardActions>
@@ -74,6 +93,6 @@ export default class Login extends React.Component<any, any> {
  * @returns null
  */
   handleChange = (inputname: string, val: string) => {
-    console.log("handleChange", inputname, val)
-  }
+    console.log('handleChange', inputname, val);
+  };
 }

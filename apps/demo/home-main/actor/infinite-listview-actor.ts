@@ -1,20 +1,19 @@
 /**
  * Created by Acans angrycans@gmail.com on 2017/3/15
  */
-import { Action, Actor, IMap } from 'plume2'
-import { fromJS } from 'immutable'
+import { Action, Actor, IMap } from 'plume2';
+import { fromJS } from 'immutable';
 
 /**
  * homeMain无限上拉刷新的actor
  *
  */
 export default class InfiniteActor extends Actor {
-
   defaultState() {
     return {
-      hasmore: false,   //还有更多数据 显示 loading
-      infiniteList: [], //无限下拉数据
-    }
+      hasmore: false, //还有更多数据 显示 loading
+      infiniteList: [] //无限下拉数据
+    };
   }
 
   /**
@@ -23,7 +22,7 @@ export default class InfiniteActor extends Actor {
    */
   @Action('home-main:setHasmore')
   setHasmore(state: IMap) {
-    return state.set('hasmore', true)
+    return state.set('hasmore', true);
   }
 
   /**
@@ -36,11 +35,9 @@ export default class InfiniteActor extends Actor {
     let _data = state.get('infiniteList').toJS();
     data.map(item => {
       _data.push(item);
-    })
+    });
 
-    return state
-      .set('infiniteList', fromJS(_data))
-      .set('hasmore', false);
+    return state.set('infiniteList', fromJS(_data)).set('hasmore', false);
   }
 
   /**

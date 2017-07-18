@@ -2,12 +2,11 @@
  * Created by Acans angrycans@gmail.com on 2017/3/15
  */
 
+import { Store, IOptions } from 'plume2';
+import { hashHistory } from 'react-router';
 
-import { Store, IOptions } from 'plume2'
-import { hashHistory } from 'react-router'
-
-import commActor from './actor/comm-actor'
-import webapi from './webapi'
+import commActor from './actor/comm-actor';
+import webapi from './webapi';
 
 /**
  * store 组件
@@ -17,9 +16,9 @@ import webapi from './webapi'
 
 export default class AppStore extends Store {
   constructor(props: IOptions) {
-    super(props)
+    super(props);
     if (__DEV__) {
-      window['_store'] = this
+      window['_store'] = this;
     }
   }
 
@@ -28,32 +27,27 @@ export default class AppStore extends Store {
    * @returns [actor]
    */
   bindActor() {
-    return [
-      new commActor
-    ]
+    return [new commActor()];
   }
 
   /**
    * 演示login时 loading的变化
    */
   setLoading = () => {
-    this.dispatch('login:setLoading')
-    setTimeout(function () {
-
+    this.dispatch('login:setLoading');
+    setTimeout(function() {
       //可以进行用户身份验证
       //... ...
 
       //路由的手动调整
-      hashHistory.push("/home")
-
+      hashHistory.push('/home');
     }, 2000);
-
   };
 
   init = () => {
-    console.log("app login view init");
+    console.log('app login view init');
     //login view 初始化
 
     webapi.init();
-  }
+  };
 }

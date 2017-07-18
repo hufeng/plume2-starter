@@ -1,32 +1,30 @@
 /**
  * Created by Acans angrycans@gmail.com on 2017/3/15
  */
-import { Store, IOptions } from 'plume2'
-import commActor from './actor/comm-actor'
-import { getTopicsDetail } from './webapi'
+import { Store, IOptions } from 'plume2';
+import commActor from './actor/comm-actor';
+import { getTopicsDetail } from './webapi';
 
 export default class AppStore extends Store {
   constructor(props: IOptions) {
-    super(props)
+    super(props);
     // if (__DEV__) {
     //   window['_store'] = this
     // }
   }
 
   bindActor() {
-    return [
-      new commActor
-    ]
+    return [new commActor()];
   }
 
   setLoading = () => {
-    this.dispatch('detail:setLoading')
+    this.dispatch('detail:setLoading');
   };
 
   setTopicsDetail = (id: string) => {
     this.setLoading();
     getTopicsDetail(id).then(d => {
-      console.log("setTopicsDetail=>", d);
+      console.log('setTopicsDetail=>', d);
       if (d.success) {
         //延时延时下loading效果
         setTimeout(() => {
@@ -34,5 +32,5 @@ export default class AppStore extends Store {
         }, 1000);
       }
     });
-  }
+  };
 }

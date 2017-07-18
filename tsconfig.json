@@ -1,28 +1,22 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
-        "noImplicitAny": false,
-        "sourceMap": false,
-        "experimentalDecorators": true,
-        "allowSyntheticDefaultImports": true,
-        "jsx": "react",
-        "baseUrl": ".",
-        "rootDirs": [
-            "apps",
-            "web_modules"
-        ],
-        "outDir": "build",
-        "importHelpers": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "paths": {
-            "qmkit": [
-                "web_modules/qmkit"
-            ]
-        }
-    },
-    "exclude": [
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es6",
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "rootDirs": ["apps", "web_modules"],
+    "outDir": "build",
+    "importHelpers": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "qmkit": ["web_modules/qmkit"]
+    }
+  },
+  "exclude": ["node_modules", "docs", "dist"]
 }

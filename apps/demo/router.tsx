@@ -4,16 +4,13 @@
  * App 路由定义文件
  * 增加使用 react-router v4
  */
-import * as React from 'react'
-import {
-  HashRouter as Router,
-} from 'react-router-dom'
+import * as React from 'react';
+import { HashRouter as Router } from 'react-router-dom';
 
-
-import { RouteWithSubRoutes, IRoute } from 'qmkit'
-import Login from './login'
-import Home from './home'
-import HomeMain from './home-main'
+import { RouteWithSubRoutes, IRoute } from 'qmkit';
+import Login from './login';
+import Home from './home';
+import HomeMain from './home-main';
 //import Profile from './profile'
 
 const routes: Array<IRoute> = [
@@ -35,21 +32,16 @@ const routes: Array<IRoute> = [
         path: '/home/profile',
         exact: true,
         asyncComponent: () => System.import('./profile')
-      },
+      }
     ]
   }
-]
+];
 
-
-const AppRouter = () => (
+const AppRouter = () =>
   <Router>
     <div>
       {RouteWithSubRoutes(routes)}
     </div>
-  </Router>
-)
-
+  </Router>;
 
 export default AppRouter;
-
-

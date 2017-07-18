@@ -3,9 +3,8 @@
   "editor.fontSize": 14,
   "window.zoomLevel": 0,
   "editor.tabSize": 2,
-  "editor.rulers": [
-    120
-  ],
+  "editor.rulers": [120],
+  "prettier.singleQuote": true,
   "editor.tabCompletion": true,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,

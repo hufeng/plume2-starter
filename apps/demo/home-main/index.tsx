@@ -1,12 +1,12 @@
 /**
  * Created by Acans angrycans@gmail.com on 2017/3/15
  */
-import * as React from 'react'
-import { StoreProvider } from 'plume2'
+import * as React from 'react';
+import { StoreProvider } from 'plume2';
 
-import AppStore from './store'
-import Header from './component/header'
-import TabsBar from './component/tabsbar'
+import AppStore from './store';
+import Header from './component/header';
+import TabsBar from './component/tabsbar';
 
 /**
  * HomeMain组件设计
@@ -19,7 +19,7 @@ export default class HomeMain extends React.Component<any, any> {
 
   //init
   componentWillMount() {
-    this.store.init()
+    this.store.init();
   }
 
   render() {
@@ -28,6 +28,6 @@ export default class HomeMain extends React.Component<any, any> {
         <Header />
         <TabsBar />
       </div>
-    )
+    );
   }
 }

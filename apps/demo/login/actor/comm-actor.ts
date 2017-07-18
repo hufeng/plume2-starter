@@ -2,7 +2,7 @@
  * Created by Acans angrycans@gmail.com on 2017/3/15
  */
 
-import { Action, Actor, IMap } from 'plume2'
+import { Action, Actor, IMap } from 'plume2';
 
 /**
  * Actor组件
@@ -19,8 +19,8 @@ export default class CounterActor extends Actor {
    */
   defaultState() {
     return {
-      loading: false  //loading 状态
-    }
+      loading: false //loading 状态
+    };
   }
 
   /**
@@ -32,11 +32,8 @@ export default class CounterActor extends Actor {
    */
   @Action('login:setLoading')
   setloading(state: IMap) {
-
-    console.log("actor setLoading");
+    console.log('actor setLoading');
 
     return state.set('loading', true);
   }
-
-
 }

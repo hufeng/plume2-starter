@@ -19,19 +19,10 @@
       ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "testPathIgnorePatterns": ["/node_modules/"]
   },
-  "keywords": [
-    "plume2",
-    "starter"
-  ],
+  "keywords": ["plume2", "starter"],
   "repository": {
     "type": "git",
     "url": "https://github.com/hufeng/plume2-starter.git"
